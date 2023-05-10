@@ -12,13 +12,13 @@ module Roseflow
       def encode(input)
         @encoding.encode(input)
       rescue
-        raise NoEncodingError, "No encoding found for model #{@model}"
+        raise ::Roseflow::Tiktoken::NoEncodingError, "No encoding found for model #{@model}"
       end
 
       def decode(input)
         @encoding.decode(input)
       rescue
-        raise NoEncodingError, "No encoding found for model #{@model}"
+        raise ::Roseflow::Tiktoken::NoEncodingError, "No encoding found for model #{@model}"
       end
 
       def count_tokens(messages)
