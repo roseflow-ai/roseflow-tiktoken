@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name = "roseflow-tiktoken"
   spec.version = Roseflow::Tiktoken.gem_version
   spec.authors = ["Lauri Jutila"]
-  spec.email = ["git@laurijutila.com"]
+  spec.email = ["ljuti@users.noreply.github.com"]
 
   spec.summary = "Tiktoken tokenizer for Roseflow."
   spec.description = "Tiktoken tokenizer for Roseflow."
@@ -29,5 +29,5 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "pycall", "~> 1.4"
+  spec.add_dependency "tiktoken_ruby"
 end

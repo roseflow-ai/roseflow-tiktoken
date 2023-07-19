@@ -2,7 +2,7 @@
 
 [tiktoken](https://github.com/openai/tiktoken) is a fast BPE tokenizer for use with OpenAI's models. `roseflow-tiktoken` gem helps you use the tokenizer in Ruby, especially with (Roseflow)[https://github.com/ljuti/roseflow].
 
-Currently, this gem wraps the (`tiktoken` Python module)[https://github.com/openai/tiktoken] for convenient use in Roseflow.
+This gem wraps the (`tiktoken_ruby` gem)[https://github.com/IAPark/tiktoken_ruby] for convenient use in Roseflow.
 
 ## Installation
 
@@ -44,6 +44,8 @@ tokenizer.decode([19952, 420, 925, 1139, 11460, 13]) # => "Turn this string into
 | `p50k_base`             | Code models, `text-davinci-002`, `text-davinci-003`                       |
 | `p50k_edit`             | Use for edit models like `text-davinci-edit-001`, `code-davinci-edit-001` |
 | `r50k_base` (or `gpt2`) | GPT-3 models like `davinci`                                               |
+
+If a model is not provided or is unknown to the library, it will default to `cl100k_base` encoding.
 
 ## Development
 
