@@ -1,12 +1,11 @@
-require "pycall"
+require "tiktoken_ruby"
 
 module Roseflow
   module Tiktoken
     class Tokenizer
       def initialize(model: nil)
-        @tokenizer = PyCall.import_module("tiktoken")
         @model = model
-        @encoding = @tokenizer.encoding_for_model(@model) if @model
+        @encoding = determine_encoding(model)
       end
 
       def encode(input)
@@ -40,6 +39,11 @@ module Roseflow
       end
 
       private
+
+      def determine_encoding(model)
+        encoding = model ? ::Tiktoken.encoding_for_model(model) : ::Tiktoken.get_encoding("cl100k_base")
+        encoding.is_a?(::Tiktoken::Encoding) ? encoding : ::Tiktoken.get_encoding("cl100k_base")
+      end
 
       def tokens_per_message_for_model(model)
         case model
